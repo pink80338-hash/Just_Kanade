@@ -1,0 +1,10 @@
+{
+    "version": 1,
+    "type": "clothes",
+    "id": "kanade_leaning_full",
+    "name": "Just Kanade",
+    "ex_props": {
+        "suppress_blinks": true,
+        "fixed_face": true
+    }
+} 
