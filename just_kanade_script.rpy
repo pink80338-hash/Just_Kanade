@@ -49,3 +49,22 @@ label mas_nickname_rejected_loop:
     k "Could you please choose a different name for me instead?"
     call screen mas_nickname_input_screen
     return
+# 5. OVERRIDE THE MAIN MENU TITLE SCREEN AND ANIMATION
+init 500 python:
+    # Loads your custom full N25 crew title layout as the background
+    mas_ui.MAIN_MENU_BG = "mod_assets/source/kanade_menu_bg.png"
+    
+    # Hides the secondary default floating game logo layer to prevent glitches
+    mas_ui.MAIN_MENU_LOGO = None
+
+# This handles the classic DDLC/MAS screen bounce for your custom layout asset
+label main_menu_allowed:
+    scene expression mas_ui.MAIN_MENU_BG
+    
+    # This block recreates the classic bouncing logo animation logic smoothly 
+    show expression mas_ui.MAIN_MENU_BG:
+        yoffset -300
+        easein 0.25 yoffset 20
+        easeout 0.15 yoffset -10
+        easein 0.15 yoffset 0
+    return
